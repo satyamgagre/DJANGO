@@ -1,0 +1,42 @@
+{% extends 'food/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TastyBites</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <h3>Available Items</h3>
+            {% block body%}
+            <div class="container mt-4">
+                <h3>Available Items</h3>
+                <ul class="list-group">
+            {% for item in item_list %}
+
+            <div class="row">
+                <div class="col-md-3 offset-md-2">
+                    <img class="card" height="250px" width="250" src="{{item.item_image}}" alt="">
+                </div>
+                <div class="col-md-4">
+                    <h4>{{ item.item_name}}</h4>
+                    <h6>{{ item.item_des}}</h6>
+                    <h6>{{ item.item_price}}</h6>
+                </div>
+                <div class="col-md-2">
+                    <a href="{% url 'food:detail' item.id %}" class="btn btn-success">Details</a>
+
+                </div>
+            </div>
+
+        {% empty %}
+            <li class="list-group-item text-muted">No items found.</li>
+        {% endfor %}
+            {% endblock %}
+        
+    </div>
+
+</body>
+</html>
