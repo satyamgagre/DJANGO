@@ -3,9 +3,9 @@
 {% block body %}
 <div class="container mt-4">
     <h2>{{ item.item_name }}</h2>
-    <img src="{{ item.item_image }}" height="300px" width="300px" alt="">
-    <p>{{ item.item_des }}</p>
-    <h4>Price: ₹{{ item.item_price }}</h4>
+    <img src="{{ object.item_image }}" height="300px" width="300px" alt="">
+    <p>{{ object.item_des }}</p>
+    <h4>Price: ₹{{ object.item_price }}</h4>
     <a href="{% url 'food:delete_item' item.id %}">Delete</a>
 </div>
 {% endblock %}
